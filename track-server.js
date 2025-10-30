@@ -13,6 +13,13 @@ app.use(cors());
 // Discord webhook URL
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
 
+// Validate webhook on startup
+if (DISCORD_WEBHOOK && DISCORD_WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
+  console.log('✅ Discord webhook configured');
+} else {
+  console.warn('⚠️  No Discord webhook configured - notifications disabled');
+}
+
 // Visit counter file
 const COUNTER_FILE = path.join(__dirname, 'visit-counter.json');
 const MESSAGE_TRACKER_FILE = path.join(__dirname, 'message-tracker.json');
@@ -201,22 +208,32 @@ app.get('/pixel.gif', async (req, res) => {
           body: JSON.stringify(discordMessage)
         });
         
-        if (response.ok) {
-          const data = await response.json();
-          
-          // Track message for cleanup (compact format)
-          const messages = loadMessageTracker();
-          messages.push({
-            id: data.id,
-            ts: Date.now(), // Use timestamp instead of ISO string (smaller)
-            v: visitCount   // Shortened key
-          });
-          saveMessageTracker(messages);
-          
-          console.log('✅ Discord notification sent successfully');
+        // Check response status
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error(`❌ Discord webhook failed (${response.status}):`, errorText.substring(0, 200));
+        } else {
+          // Check if response is JSON
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            const data = await response.json();
+            
+            // Track message for cleanup (compact format)
+            const messages = loadMessageTracker();
+            messages.push({
+              id: data.id,
+              ts: Date.now(),
+              v: visitCount
+            });
+            saveMessageTracker(messages);
+            
+            console.log(`✅ Discord notification sent (#${visitCount})`);
+          } else {
+            console.error('❌ Discord returned non-JSON response (webhook might be invalid)');
+          }
         }
       } catch (err) {
-        console.error('❌ Discord webhook failed:', err.message);
+        console.error('❌ Discord webhook error:', err.message);
       }
     }
 
