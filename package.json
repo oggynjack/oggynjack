@@ -1,0 +1,18 @@
+{
+  "name": "github-profile-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "GitHub profile visit tracker with Discord notifications",
+  "main": "track-server.js",
+  "scripts": {
+    "start": "node track-server.js",
+    "dev": "node track-server.js"
+  },
+  "keywords": ["tracking", "github", "discord", "analytics"],
+  "author": "oggynjack",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
