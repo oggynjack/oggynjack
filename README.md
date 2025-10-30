@@ -1,20 +1,19 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=32&duration=2500&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=700&lines=oggynjack+%7C+Web+Developer;Discord+Bot+Developer;AI+%26+Automation+Enthusiast;Building+Digital+Experiences" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=36&duration=2500&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=700&lines=oggynjack+%7C+Web+Developer;Discord+Bot+Developer;AI+%26+Automation+Enthusiast;Building+Digital+Experiences" alt="Typing SVG" />
 </div>
 
-<h3 align="center">
+<div align="center" style="background: linear-gradient(90deg, #0f0f0f 0%, #1a1a1a 100%); padding: 20px; border-radius: 10px;">
   <img src="https://img.icons8.com/fluency/48/code.png" width="24" height="24"/> 
-  Web Developer | Discord Bots | AI Integration
+  <strong style="font-family: 'Protest Strike', sans-serif; font-size: 18px;">Web Developer | Discord Bots | AI Integration</strong>
   <img src="https://img.icons8.com/fluency/48/bot.png" width="24" height="24"/>
-</h3>
+</div>
+
+<br>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=oggynjack&label=Profile%20views&color=0e75b6&style=for-the-badge" alt="oggynjack" />
   <img src="https://img.shields.io/github/followers/oggynjack?label=Followers&style=for-the-badge&color=blue" alt="followers" />
 </p>
-
-<!-- Visitor Tracking with Webhook -->
-<img src="https://webhook.site/unique-uuid-here?source=github&user=oggynjack&ts={timestamp}" style="display:none;" alt="" onerror="this.style.display='none'" />
 
 <p align="center">
   <a href="https://github.com/ryo-ma/github-profile-trophy">
@@ -24,78 +23,54 @@
 
 ---
 
-<<<<<<< HEAD
-### <img src="https://img.icons8.com/fluency/48/user-male-circle.png" width="28" height="28"/> About Me
-=======
-### 👨‍💻 About Me
-
-```javascript
-const oggynjack = {
-    location: "Worldwide 🌍",
-    role: "Full Stack Developer",
-    currentFocus: ["React", "Next.js", "Node.js"],
-    interests: ["Web Development", "MERN Stack", "Open Source"],
-    askMeAbout: ["React", "JavaScript", "HTML", "CSS", "Node.js"],
-    technologies: {
-        frontEnd: ["React", "Next.js", "TypeScript", "TailwindCSS"],
-        backEnd: ["Node.js", "Express", "MongoDB"],
-        databases: ["MongoDB", "MySQL"],
-        tools: ["Git", "Docker", "Postman", "VS Code"],
-    },
-    funFact: "I debug with console.log() 🐛"
-};
-```
-
-### 🔥 Current Status
-
-- 🔭 Currently working on **React & MERN Stack Projects**
-- 🌱 Learning **Next.js, TypeScript, Advanced JavaScript**
-- 👯 Looking to collaborate on **Open Source Projects**
-- 🤝 Seeking help with **Advanced Web Technologies**
-- 💬 Ask me about **React, JavaScript, Web Development**
-- 📫 Reach me: **support@0code.uk**
-- ⚡ Fun fact: **I turn coffee into code ☕️**
-
-### 🎯 Featured Projects
->>>>>>> ef1f784a842fd8023c02a661c307daa41c2b8f29
-
 <div align="center">
 
-[![Readme Quotes](https://github-readme-quotes.herokuapp.com/quote?theme=algolia&animation=default&layout=default&font=default)](https://github.com/piyushsuthar/github-readme-quotes)
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFD700&center=true&vCenter=true&width=250&lines=About+Me" alt="About Me" />
 
 </div>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+<div align="center" style="background: #0d1117; padding: 20px; border-radius: 10px;">
 
 ```bash
 ┌──(oggynjack㉿github)-[~/profile]
 └─$ cat about.json
 ```
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1000&color=00FF41&multiline=true&repeat=false&width=800&height=400&lines=%7B;++%22developer%22%3A+%22oggynjack%22%2C;++%22focus%22%3A+%5B;++++%22Web+Development%22%2C;++++%22Discord+Bot+Development%22%2C;++++%22AI+Integration%22;++%5D%2C;++%22specialties%22%3A+%5B;++++%22React%22%2C;++++%22Next.js%22%2C;++++%22Discord.js%22%2C;++++%22API+Development%22;++%5D%2C;++%22tools%22%3A+%5B%22Git%22%2C+%22VS+Code%22%2C+%22Postman%22%5D;%7D" alt="Terminal Animation" />
+</div>
 
 <div align="center">
 
-```bash
-┌──(oggynjack㉿github)-[~/profile]
-└─$ ls -la projects/
-```
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1000&color=00FF41&multiline=true&repeat=false&width=800&height=400&lines=%7B;++%22developer%22%3A+%22oggynjack%22%2C;++%22focus%22%3A+%5B;++++%22Web+Development%22%2C;++++%22Discord+Bot+Development%22%2C;++++%22AI+Integration%22;++%5D%2C;++%22specialties%22%3A+%5B;++++%22React%22%2C;++++%22Next.js%22%2C;++++%22Discord.js%22%2C;++++%22API+Development%22;++%5D%2C;++%22tools%22%3A+%5B%22Git%22%2C+%22VS+Code%22%2C+%22Postman%22%5D;%7D" alt="Terminal Animation" />
 
 </div>
 
-### <img src="https://img.icons8.com/fluency/48/fire-element.png" width="28" height="28"/> Current Status
+<div align="center">
 
-<img src="https://img.icons8.com/fluency/20/laptop-coding.png"/> Currently building web apps & Discord bots
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B6B&center=true&vCenter=true&width=300&lines=Current+Status" alt="Current Status" />
 
-<img src="https://img.icons8.com/fluency/20/book.png"/> Learning AI integration & advanced Discord.js
+</div>
 
-<img src="https://img.icons8.com/fluency/20/handshake.png"/> Open to collaboration on innovative projects
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; margin: 20px 0;">
 
-<img src="https://img.icons8.com/fluency/20/chat.png"/> Ask me about React, Discord bots, web development
+<img src="https://img.icons8.com/fluency/20/laptop-coding.png"/> **Currently building web apps & Discord bots**
 
-<img src="https://img.icons8.com/fluency/20/email.png"/> Contact: **your-email@example.com**
+<img src="https://img.icons8.com/fluency/20/book.png"/> **Learning AI integration & advanced Discord.js**
 
-### <img src="https://img.icons8.com/fluency/48/rocket.png" width="28" height="28"/> Featured Projects
+<img src="https://img.icons8.com/fluency/20/handshake.png"/> **Open to collaboration on innovative projects**
+
+<img src="https://img.icons8.com/fluency/20/chat.png"/> **Ask me about React, Discord bots, web development**
+
+<img src="https://img.icons8.com/fluency/20/email.png"/> **Contact: support@0code.uk**
+
+</div>
+
+<div align="center">
+
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=4CAF50&center=true&vCenter=true&width=350&lines=Featured+Projects" alt="Featured Projects" />
+
+</div>
 
 <div align="center">
 
@@ -170,7 +145,11 @@ const oggynjack = {
 
 </div>
 
-### 📊 GitHub Analytics
+<div align="center">
+
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00D9FF&center=true&vCenter=true&width=350&lines=GitHub+Analytics" alt="GitHub Analytics" />
+
+</div>
 
 <p align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
@@ -187,13 +166,17 @@ const oggynjack = {
 
 ---
 
-### 🌐 Connect with Me
+<div align="center">
+
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B9D&center=true&vCenter=true&width=350&lines=Connect+with+Me" alt="Connect with Me" />
+
+</div>
 
 <p align="center">
-  <a href="https://linkedin.com/in/yourprofile" target="_blank">
+  <a href="https://linkedin.com/in/lakhwindersinghkaler" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
-  <a href="mailto:your-email@example.com">
+  <a href="mailto:support@0code.uk">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
   </a>
   <a href="https://github.com/oggynjack" target="_blank">
@@ -203,37 +186,61 @@ const oggynjack = {
 
 ---
 
-### <img src="https://img.icons8.com/fluency/48/settings.png" width="28" height="28"/> Tech Stack
+<div align="center">
+
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=9D50BB&center=true&vCenter=true&width=250&lines=Tech+Stack" alt="Tech Stack" />
+
+</div>
 
 <div align="center">
 
-#### <img src="https://img.icons8.com/fluency/24/monitor.png" width="20" height="20"/> Frontend Development
+<div style="background: #1a1a2e; padding: 15px; border-radius: 10px; margin: 10px 0;">
+
+#### <img src="https://img.icons8.com/fluency/24/monitor.png" width="20" height="20"/> **Frontend Development**
 <p>
   <img src="https://skillicons.dev/icons?i=react,nextjs,javascript,typescript,html,css,tailwind,bootstrap" />
 </p>
 
-#### <img src="https://img.icons8.com/fluency/24/server.png" width="20" height="20"/> Backend & APIs
+</div>
+
+<div style="background: #16213e; padding: 15px; border-radius: 10px; margin: 10px 0;">
+
+#### <img src="https://img.icons8.com/fluency/24/server.png" width="20" height="20"/> **Backend & APIs**
 <p>
   <img src="https://skillicons.dev/icons?i=nodejs,express,discord,bots" />
 </p>
 
-#### <img src="https://img.icons8.com/fluency/24/artificial-intelligence.png" width="20" height="20"/> AI & Integration
+</div>
+
+<div style="background: #0f3460; padding: 15px; border-radius: 10px; margin: 10px 0;">
+
+#### <img src="https://img.icons8.com/fluency/24/artificial-intelligence.png" width="20" height="20"/> **AI & Integration**
 <p>
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/AI_APIs-FF6B6B?style=for-the-badge&logo=robot&logoColor=white" />
   <img src="https://img.shields.io/badge/Automation-4CAF50?style=for-the-badge&logo=zapier&logoColor=white" />
 </p>
 
-#### <img src="https://img.icons8.com/fluency/24/toolbox.png" width="20" height="20"/> Tools & Platforms
+</div>
+
+<div style="background: #533483; padding: 15px; border-radius: 10px; margin: 10px 0;">
+
+#### <img src="https://img.icons8.com/fluency/24/toolbox.png" width="20" height="20"/> **Tools & Platforms**
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,vercel,netlify" />
 </p>
 
 </div>
 
+</div>
+
 ---
 
-### 💖 Support My Work
+<div align="center">
+
+### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFEB3B&center=true&vCenter=true&width=350&lines=Support+My+Work" alt="Support My Work" />
+
+</div>
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/oggynjack" target="_blank">
