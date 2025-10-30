@@ -10,14 +10,104 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(cors());
 
-// ⚠️ REPLACE WITH YOUR DISCORD WEBHOOK URL
-const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
+// Discord webhook URL
+const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
+
+// Visit counter file
+const COUNTER_FILE = path.join(__dirname, 'visit-counter.json');
+const MESSAGE_TRACKER_FILE = path.join(__dirname, 'message-tracker.json');
+
+// Load or initialize visit counter
+function loadCounter() {
+  try {
+    if (fs.existsSync(COUNTER_FILE)) {
+      const data = JSON.parse(fs.readFileSync(COUNTER_FILE, 'utf8'));
+      return data.count || 0;
+    }
+  } catch (err) {
+    console.error('Error loading counter:', err.message);
+  }
+  return 0;
+}
+
+// Save visit counter
+function saveCounter(count) {
+  try {
+    fs.writeFileSync(COUNTER_FILE, JSON.stringify({ count, lastUpdated: new Date().toISOString() }));
+  } catch (err) {
+    console.error('Error saving counter:', err.message);
+  }
+}
+
+// Load message tracker
+function loadMessageTracker() {
+  try {
+    if (fs.existsSync(MESSAGE_TRACKER_FILE)) {
+      return JSON.parse(fs.readFileSync(MESSAGE_TRACKER_FILE, 'utf8'));
+    }
+  } catch (err) {
+    console.error('Error loading message tracker:', err.message);
+  }
+  return [];
+}
+
+// Save message tracker
+function saveMessageTracker(messages) {
+  try {
+    fs.writeFileSync(MESSAGE_TRACKER_FILE, JSON.stringify(messages, null, 2));
+  } catch (err) {
+    console.error('Error saving message tracker:', err.message);
+  }
+}
+
+// Delete old Discord messages (older than 4 days)
+async function cleanupOldMessages() {
+  const messages = loadMessageTracker();
+  const fourDaysAgo = Date.now() - (4 * 24 * 60 * 60 * 1000);
+  const remainingMessages = [];
+
+  for (const msg of messages) {
+    const messageAge = new Date(msg.timestamp).getTime();
+    
+    if (messageAge < fourDaysAgo) {
+      // Delete old message
+      try {
+        const deleteUrl = `${DISCORD_WEBHOOK}/messages/${msg.id}`;
+        await fetch(deleteUrl, { method: 'DELETE' });
+        console.log(`🗑️  Deleted old message: ${msg.id}`);
+      } catch (err) {
+        console.error(`Failed to delete message ${msg.id}:`, err.message);
+        remainingMessages.push(msg); // Keep in tracker if deletion failed
+      }
+    } else {
+      remainingMessages.push(msg);
+    }
+  }
+
+  saveMessageTracker(remainingMessages);
+}
+
+let visitCount = loadCounter();
+
+// Run cleanup every 6 hours
+setInterval(cleanupOldMessages, 6 * 60 * 60 * 1000);
+cleanupOldMessages(); // Run on startup
 
 // Serve the tracking GIF
 app.get('/pixel.gif', async (req, res) => {
   try {
-    // Get visitor info
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'Unknown';
+    // Get visitor info - extract real IP from proxy chain
+    const forwardedFor = req.headers['x-forwarded-for'];
+    let ip = 'Unknown';
+    
+    if (forwardedFor) {
+      // x-forwarded-for contains comma-separated IPs, first one is the real client IP
+      const ips = forwardedFor.split(',').map(ip => ip.trim());
+      ip = ips[0]; // Real visitor IP
+    } else {
+      ip = req.socket.remoteAddress || 'Unknown';
+    }
+    
     const userAgent = req.headers['user-agent'] || 'Unknown';
     const referrer = req.headers['referer'] || 'Direct Visit';
     const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
@@ -28,14 +118,29 @@ app.get('/pixel.gif', async (req, res) => {
     else if (userAgent.includes('Tablet')) device = 'Tablet';
     else device = 'Desktop';
 
-    // Parse browser
+    // Parse browser with better detection
     let browser = 'Unknown';
-    if (userAgent.includes('Chrome')) browser = 'Chrome';
+    if (userAgent.includes('Edg')) browser = 'Edge';
+    else if (userAgent.includes('Chrome')) browser = 'Chrome';
     else if (userAgent.includes('Firefox')) browser = 'Firefox';
-    else if (userAgent.includes('Safari')) browser = 'Safari';
-    else if (userAgent.includes('Edge')) browser = 'Edge';
+    else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = 'Safari';
+    else if (userAgent.includes('OPR') || userAgent.includes('Opera')) browser = 'Opera';
 
-    console.log(`📊 Profile Visit: ${ip} | ${device} - ${browser} | ${timestamp}`);
+    // Increment visit counter
+    visitCount++;
+    saveCounter(visitCount);
+
+    // Enhanced console logging
+    console.log(`\n${'='.repeat(60)}`);
+    console.log(`📊 NEW PROFILE VISIT #${visitCount}`);
+    console.log(`${'='.repeat(60)}`);
+    console.log(`👤 Profile: oggynjack`);
+    console.log(`🌐 IP: ${ip}`);
+    console.log(`💻 Device: ${device}`);
+    console.log(`🌐 Browser: ${browser}`);
+    console.log(`🔗 Referrer: ${referrer}`);
+    console.log(`⏰ Time: ${timestamp}`);
+    console.log(`${'='.repeat(60)}\n`);
 
     // Send to Discord (optional - fetch location data)
     let locationInfo = 'Unknown';
@@ -53,26 +158,46 @@ app.get('/pixel.gif', async (req, res) => {
     if (DISCORD_WEBHOOK && DISCORD_WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
       const discordMessage = {
         embeds: [{
-          title: '🌐 New GitHub Profile Visit',
+          title: `🌐 Profile Visit #${visitCount}`,
           color: 0x00D9FF,
           fields: [
             { name: '👤 Profile', value: 'oggynjack', inline: true },
+            { name: '📊 Total Visits', value: `${visitCount}`, inline: true },
             { name: '📍 Location', value: locationInfo, inline: true },
             { name: '💻 Device', value: `${device} - ${browser}`, inline: true },
             { name: '🌐 IP Address', value: ip, inline: true },
             { name: '🔗 Referrer', value: referrer.substring(0, 50), inline: false },
             { name: '⏰ Time', value: timestamp, inline: true }
           ],
-          footer: { text: 'GitHub Profile Tracker' },
+          footer: { text: 'Auto-deletes after 4 days' },
           timestamp: new Date().toISOString()
         }]
       };
 
-      await fetch(DISCORD_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(discordMessage)
-      }).catch(err => console.error('Discord webhook failed:', err.message));
+      try {
+        const response = await fetch(DISCORD_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordMessage)
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          // Track message for cleanup
+          const messages = loadMessageTracker();
+          messages.push({
+            id: data.id,
+            timestamp: new Date().toISOString(),
+            visitNumber: visitCount
+          });
+          saveMessageTracker(messages);
+          
+          console.log('✅ Discord notification sent successfully');
+        }
+      } catch (err) {
+        console.error('❌ Discord webhook failed:', err.message);
+      }
     }
 
     // Serve the GIF file
