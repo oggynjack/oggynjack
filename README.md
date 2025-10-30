@@ -26,9 +26,9 @@
 
 ---
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFD700&center=true&vCenter=true&width=250&lines=About+Me" alt="About Me" />
-</h2>
+</div>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
@@ -47,9 +47,9 @@
 
 </div>
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B6B&center=true&vCenter=true&width=300&lines=Current+Status" alt="Current Status" />
-</h2>
+</div>
 
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; margin: 20px 0;">
 
@@ -65,9 +65,9 @@
 
 </div>
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=4CAF50&center=true&vCenter=true&width=350&lines=Featured+Projects" alt="Featured Projects" />
-</h2>
+</div>
 
 <div align="center">
 
@@ -160,9 +160,9 @@ Custom Discord automation
 
 </div>
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00D9FF&center=true&vCenter=true&width=350&lines=GitHub+Analytics" alt="GitHub Analytics" />
-</h2>
+</div>
 
 <p align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
@@ -179,9 +179,9 @@ Custom Discord automation
 
 ---
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B9D&center=true&vCenter=true&width=350&lines=Connect+with+Me" alt="Connect with Me" />
-</h2>
+</div>
 
 <p align="center">
   <a href="https://linkedin.com/in/lakhwindersinghkaler" target="_blank">
@@ -197,9 +197,9 @@ Custom Discord automation
 
 ---
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=9D50BB&center=true&vCenter=true&width=250&lines=Tech+Stack" alt="Tech Stack" />
-</h2>
+</div>
 
 <div align="center">
 
@@ -245,9 +245,9 @@ Custom Discord automation
 
 ---
 
-<h2 align="center">
+<div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFEB3B&center=true&vCenter=true&width=350&lines=Support+My+Work" alt="Support My Work" />
-</h2>
+</div>
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/oggynjack" target="_blank">

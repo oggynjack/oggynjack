@@ -139,19 +139,43 @@ app.get('/pixel.gif', async (req, res) => {
     const referrer = req.headers['referer'] || 'Direct Visit';
     const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
 
-    // Parse device info
+    // Parse device info with better iOS detection
     let device = 'Unknown';
-    if (userAgent.includes('Mobile')) device = 'Mobile';
-    else if (userAgent.includes('Tablet')) device = 'Tablet';
-    else device = 'Desktop';
+    if (userAgent.includes('iPhone') || userAgent.includes('iPod')) {
+      device = 'iPhone';
+    } else if (userAgent.includes('iPad')) {
+      device = 'iPad';
+    } else if (userAgent.includes('Android') && userAgent.includes('Mobile')) {
+      device = 'Android Phone';
+    } else if (userAgent.includes('Android')) {
+      device = 'Android Tablet';
+    } else if (userAgent.includes('Mobile') || userAgent.includes('mobile')) {
+      device = 'Mobile';
+    } else if (userAgent.includes('Tablet')) {
+      device = 'Tablet';
+    } else {
+      device = 'Desktop';
+    }
 
-    // Parse browser with better detection
+    // Parse browser with better detection (order matters!)
     let browser = 'Unknown';
-    if (userAgent.includes('Edg')) browser = 'Edge';
-    else if (userAgent.includes('Chrome')) browser = 'Chrome';
-    else if (userAgent.includes('Firefox')) browser = 'Firefox';
-    else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = 'Safari';
-    else if (userAgent.includes('OPR') || userAgent.includes('Opera')) browser = 'Opera';
+    if (userAgent.includes('CriOS')) {
+      browser = 'Chrome iOS';
+    } else if (userAgent.includes('FxiOS')) {
+      browser = 'Firefox iOS';
+    } else if (userAgent.includes('EdgiOS')) {
+      browser = 'Edge iOS';
+    } else if (userAgent.includes('Edg/') || userAgent.includes('Edge/')) {
+      browser = 'Edge';
+    } else if (userAgent.includes('Chrome')) {
+      browser = 'Chrome';
+    } else if (userAgent.includes('Firefox')) {
+      browser = 'Firefox';
+    } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+      browser = 'Safari';
+    } else if (userAgent.includes('OPR') || userAgent.includes('Opera')) {
+      browser = 'Opera';
+    }
 
     // Increment visit counter
     visitCount++;
