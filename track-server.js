@@ -155,22 +155,32 @@ app.get('/pixel.gif', async (req, res) => {
     }
     
     const userAgent = req.headers['user-agent'] || 'Unknown';
-    const referrer = req.headers['referer'] || 'Direct Visit';
+    const ua = userAgent.toLowerCase();
+    const referrer = (req.headers['referer'] || 'Direct Visit').toString();
     const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+
+    // Detect GitHub/CDN proxy requests (images in README are proxied)
+    const isProxied =
+      ua.includes('github') ||
+      ua.includes('camo') ||
+      referrer.includes('github.com') ||
+      ip.startsWith('140.82.') || // GitHub
+      ip.startsWith('185.199.') || // GitHub CDN
+      ip.startsWith('192.30.'); // GitHub legacy
 
     // Parse device info with better iOS detection
     let device = 'Unknown';
-    if (userAgent.includes('iPhone') || userAgent.includes('iPod')) {
+    if (ua.includes('iphone') || ua.includes('ipod')) {
       device = 'iPhone';
-    } else if (userAgent.includes('iPad')) {
+    } else if (ua.includes('ipad')) {
       device = 'iPad';
-    } else if (userAgent.includes('Android') && userAgent.includes('Mobile')) {
+    } else if (ua.includes('android') && ua.includes('mobile')) {
       device = 'Android Phone';
-    } else if (userAgent.includes('Android')) {
+    } else if (ua.includes('android')) {
       device = 'Android Tablet';
-    } else if (userAgent.includes('Mobile') || userAgent.includes('mobile')) {
+    } else if (ua.includes('mobile')) {
       device = 'Mobile';
-    } else if (userAgent.includes('Tablet')) {
+    } else if (ua.includes('tablet')) {
       device = 'Tablet';
     } else {
       device = 'Desktop';
@@ -178,22 +188,27 @@ app.get('/pixel.gif', async (req, res) => {
 
     // Parse browser with better detection (order matters!)
     let browser = 'Unknown';
-    if (userAgent.includes('CriOS')) {
+    if (ua.includes('crios')) {
       browser = 'Chrome iOS';
-    } else if (userAgent.includes('FxiOS')) {
+    } else if (ua.includes('fxios')) {
       browser = 'Firefox iOS';
-    } else if (userAgent.includes('EdgiOS')) {
+    } else if (ua.includes('edgios')) {
       browser = 'Edge iOS';
-    } else if (userAgent.includes('Edg/') || userAgent.includes('Edge/')) {
+    } else if (ua.includes('edg/') || ua.includes('edge/')) {
       browser = 'Edge';
-    } else if (userAgent.includes('Chrome')) {
+    } else if (ua.includes('chrome')) {
       browser = 'Chrome';
-    } else if (userAgent.includes('Firefox')) {
+    } else if (ua.includes('firefox')) {
       browser = 'Firefox';
-    } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+    } else if (ua.includes('safari') && !ua.includes('chrome')) {
       browser = 'Safari';
-    } else if (userAgent.includes('OPR') || userAgent.includes('Opera')) {
+    } else if (ua.includes('opr') || ua.includes('opera')) {
       browser = 'Opera';
+    }
+
+    if (isProxied) {
+      device = 'Proxy (GitHub/CDN)';
+      browser = 'Proxied Request';
     }
 
     // Increment visit counter
@@ -224,10 +239,10 @@ app.get('/pixel.gif', async (req, res) => {
           fields: [
             { name: '👤 Profile', value: 'oggynjack', inline: true },
             { name: '📊 Total Visits', value: `${visitCount}`, inline: true },
-            { name: '📍 Location', value: locationInfo, inline: true },
+            { name: '📍 Location', value: isProxied ? 'Proxied via GitHub/CDN' : locationInfo, inline: true },
             { name: '💻 Device', value: `${device} - ${browser}`, inline: true },
-            { name: '🌐 IP Address', value: ip, inline: true },
-            { name: '🔗 Referrer', value: referrer.substring(0, 50), inline: false },
+            { name: '🌐 IP Address', value: isProxied ? 'Proxied' : ip, inline: true },
+            { name: '🔗 Referrer', value: referrer.substring(0, 80), inline: false },
             { name: '⏰ Time', value: timestamp, inline: true }
           ],
           footer: { text: 'Auto-deletes after 4 days' },
