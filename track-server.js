@@ -277,6 +277,46 @@ app.get('/', (req, res) => {
   res.send('🚀 GitHub Profile Tracker is running!');
 });
 
+// Test Discord webhook endpoint
+app.get('/test-webhook', async (req, res) => {
+  if (!DISCORD_WEBHOOK || DISCORD_WEBHOOK === 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
+    return res.send('❌ No webhook configured');
+  }
+
+  try {
+    const testMessage = {
+      content: '🧪 **Test message from tracking server!**',
+      embeds: [{
+        title: '✅ Webhook Test Successful',
+        description: 'If you can see this, your Discord webhook is working properly!',
+        color: 0x00FF00,
+        timestamp: new Date().toISOString()
+      }]
+    };
+
+    const response = await fetch(DISCORD_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(testMessage)
+    });
+
+    const responseText = await response.text();
+
+    res.send(`
+      <h2>Discord Webhook Test</h2>
+      <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+      <p><strong>Webhook URL:</strong> ${DISCORD_WEBHOOK.substring(0, 60)}...</p>
+      <p><strong>Response Headers:</strong></p>
+      <pre>${JSON.stringify(Object.fromEntries(response.headers.entries()), null, 2)}</pre>
+      <p><strong>Response Body:</strong></p>
+      <pre>${responseText.substring(0, 500)}</pre>
+      ${response.ok ? '<h3 style="color: green;">✅ Success! Check your Discord channel.</h3>' : '<h3 style="color: red;">❌ Failed!</h3>'}
+    `);
+  } catch (err) {
+    res.send(`<h2>Error</h2><pre>${err.message}\n\n${err.stack}</pre>`);
+  }
+});
+
 const PORT = process.env.PORT || 4013;
 app.listen(PORT, () => {
   console.log(`✅ Tracking server running on port ${PORT}`);
