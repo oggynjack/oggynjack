@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 
 // ⚠️ REPLACE WITH YOUR DISCORD WEBHOOK URL
-const DISCORD_WEBHOOK = 'YOUR_DISCORD_WEBHOOK_URL_HERE';
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
 
 // Serve the tracking GIF
 app.get('/pixel.gif', async (req, res) => {
@@ -105,7 +105,7 @@ app.get('/', (req, res) => {
   res.send('🚀 GitHub Profile Tracker is running!');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4013;
 app.listen(PORT, () => {
   console.log(`✅ Tracking server running on port ${PORT}`);
   console.log(`📊 Tracking endpoint: http://localhost:${PORT}/pixel.gif`);
