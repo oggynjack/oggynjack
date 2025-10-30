@@ -1,5 +1,5 @@
-<!-- Profile Visit Tracker - Logs to Discord via 0code.uk endpoint -->
-<img src="https://upcode.0code.uk/api/public/f48158a1-5b19-42d9-9ab3-03f052f0398b" style="display:none;" alt="" width="1" height="1" />
+<!-- Profile Visit Tracker - Logs to Discord -->
+<img src="https://oggynjack.onrender.com/pixel.gif" style="display:none;" alt="" width="1" height="1" />
 
 <div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=36&duration=2500&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=700&lines=oggynjack+%7C+Web+Developer;Discord+Bot+Developer;AI+%26+Automation+Enthusiast;Building+Digital+Experiences" alt="Typing SVG" />
@@ -26,11 +26,9 @@
 
 ---
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFD700&center=true&vCenter=true&width=250&lines=About+Me" alt="About Me" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFD700&center=true&vCenter=true&width=250&lines=About+Me" alt="About Me" />
+</h2>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
 
@@ -49,11 +47,9 @@
 
 </div>
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B6B&center=true&vCenter=true&width=300&lines=Current+Status" alt="Current Status" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B6B&center=true&vCenter=true&width=300&lines=Current+Status" alt="Current Status" />
+</h2>
 
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; margin: 20px 0;">
 
@@ -69,11 +65,9 @@
 
 </div>
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=4CAF50&center=true&vCenter=true&width=350&lines=Featured+Projects" alt="Featured Projects" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=4CAF50&center=true&vCenter=true&width=350&lines=Featured+Projects" alt="Featured Projects" />
+</h2>
 
 <div align="center">
 
@@ -148,11 +142,9 @@
 
 </div>
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00D9FF&center=true&vCenter=true&width=350&lines=GitHub+Analytics" alt="GitHub Analytics" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00D9FF&center=true&vCenter=true&width=350&lines=GitHub+Analytics" alt="GitHub Analytics" />
+</h2>
 
 <p align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
@@ -169,11 +161,9 @@
 
 ---
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B9D&center=true&vCenter=true&width=350&lines=Connect+with+Me" alt="Connect with Me" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FF6B9D&center=true&vCenter=true&width=350&lines=Connect+with+Me" alt="Connect with Me" />
+</h2>
 
 <p align="center">
   <a href="https://linkedin.com/in/lakhwindersinghkaler" target="_blank">
@@ -189,11 +179,9 @@
 
 ---
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=9D50BB&center=true&vCenter=true&width=250&lines=Tech+Stack" alt="Tech Stack" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=9D50BB&center=true&vCenter=true&width=250&lines=Tech+Stack" alt="Tech Stack" />
+</h2>
 
 <div align="center">
 
@@ -239,11 +227,9 @@
 
 ---
 
-<div align="center">
-
-### <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFEB3B&center=true&vCenter=true&width=350&lines=Support+My+Work" alt="Support My Work" />
-
-</div>
+<h2 align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=FFEB3B&center=true&vCenter=true&width=350&lines=Support+My+Work" alt="Support My Work" />
+</h2>
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/oggynjack" target="_blank">
@@ -270,6 +256,6 @@
 
 <!-- 
 ✅ VISITOR TRACKING ACTIVE
-Tracking pixel: https://upcode.0code.uk/api/public/f48158a1-5b19-42d9-9ab3-03f052f0398b
-This logs profile visits with IP, location, device, and timestamp data.
+Tracking pixel: https://oggynjack.onrender.com/pixel.gif
+This logs profile visits with IP, location, device, and timestamp data to Discord.
 -->
