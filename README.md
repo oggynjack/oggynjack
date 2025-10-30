@@ -24,7 +24,40 @@
 
 ---
 
+<<<<<<< HEAD
 ### <img src="https://img.icons8.com/fluency/48/user-male-circle.png" width="28" height="28"/> About Me
+=======
+### 👨‍💻 About Me
+
+```javascript
+const oggynjack = {
+    location: "Worldwide 🌍",
+    role: "Full Stack Developer",
+    currentFocus: ["React", "Next.js", "Node.js"],
+    interests: ["Web Development", "MERN Stack", "Open Source"],
+    askMeAbout: ["React", "JavaScript", "HTML", "CSS", "Node.js"],
+    technologies: {
+        frontEnd: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+        backEnd: ["Node.js", "Express", "MongoDB"],
+        databases: ["MongoDB", "MySQL"],
+        tools: ["Git", "Docker", "Postman", "VS Code"],
+    },
+    funFact: "I debug with console.log() 🐛"
+};
+```
+
+### 🔥 Current Status
+
+- 🔭 Currently working on **React & MERN Stack Projects**
+- 🌱 Learning **Next.js, TypeScript, Advanced JavaScript**
+- 👯 Looking to collaborate on **Open Source Projects**
+- 🤝 Seeking help with **Advanced Web Technologies**
+- 💬 Ask me about **React, JavaScript, Web Development**
+- 📫 Reach me: **support@0code.uk**
+- ⚡ Fun fact: **I turn coffee into code ☕️**
+
+### 🎯 Featured Projects
+>>>>>>> ef1f784a842fd8023c02a661c307daa41c2b8f29
 
 <div align="center">
 
