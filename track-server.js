@@ -237,8 +237,10 @@ app.get('/pixel.gif', async (req, res) => {
             console.log(`✅ Discord notification sent (#${visitCount})`);
           } catch (parseErr) {
             console.error('❌ Discord returned non-JSON response');
-            console.error('Response preview:', responseText.substring(0, 200));
+            console.error('Response preview:', responseText.substring(0, 500));
             console.error('Content-Type:', response.headers.get('content-type'));
+            console.error('Response Status:', response.status);
+            console.error('Webhook (first 70 chars):', DISCORD_WEBHOOK.substring(0, 70));
           }
         }
       } catch (err) {
