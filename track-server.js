@@ -13,11 +13,39 @@ app.use(cors());
 // Discord webhook URL
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
 
+// ANSI color codes
+const colors = {
+  orange: '\x1b[38;5;202m',
+  white: '\x1b[97m',
+  green: '\x1b[38;5;34m',
+  blue: '\x1b[36m',
+  reset: '\x1b[0m'
+};
+
+// ASCII Art Banner with India flag colors
+function showBanner() {
+  console.log(`
+${colors.orange} .d8888b.   .d8888b.                888                      888     
+${colors.orange}d88P  Y88b d88P  Y88b               888                      888     
+${colors.orange}888    888 888    888               888                      888     
+${colors.white}888    888 888         .d88b.   .d88888  .d88b.     888  888 888  888
+${colors.white}888    888 888        d88""88b d88" 888 d8P  Y8b    888  888 888 .88P
+${colors.white}888    888 888    888 888  888 888  888 88888888    888  888 888888K 
+${colors.green}Y88b  d88P Y88b  d88P Y88..88P Y88b 888 Y8b.    d8b Y88b 888 888 "88b
+${colors.green} "Y8888P"   "Y8888P"   "Y88P"   "Y88888  "Y8888 Y8P  "Y88888 888  888
+${colors.green}                                                        ${colors.white}❤️  Made by Oggy${colors.reset}
+`);
+}
+
+// Show banner on startup and every 2 minutes
+showBanner();
+setInterval(showBanner, 120000); // 120 seconds
+
 // Validate webhook on startup
 if (DISCORD_WEBHOOK && DISCORD_WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
-  console.log('✅ Discord webhook configured');
+  console.log(`${colors.blue}✅ Discord webhook configured${colors.reset}`);
 } else {
-  console.warn('⚠️  No Discord webhook configured - notifications disabled');
+  console.warn(`${colors.orange}⚠️  No Discord webhook configured${colors.reset}`);
 }
 
 // Visit counter file
@@ -76,20 +104,19 @@ async function cleanupOldMessages() {
   const remainingMessages = [];
   let deletedCount = 0;
 
-  console.log(`🧹 Starting cleanup... ${messages.length} messages tracked`);
+  if (messages.length > 0) {
+    console.log(`${colors.blue}🧹 Cleanup: checking ${messages.length} messages${colors.reset}`);
+  }
 
   for (const msg of messages) {
-    // Handle both old format (timestamp) and new format (ts)
     const messageAge = msg.ts || new Date(msg.timestamp).getTime();
     
     if (messageAge < fourDaysAgo) {
-      // Delete old message
       try {
         const deleteUrl = `${DISCORD_WEBHOOK}/messages/${msg.id}`;
         await fetch(deleteUrl, { method: 'DELETE' });
         deletedCount++;
       } catch (err) {
-        // If delete fails, keep in tracker (message might already be deleted)
         if (!err.message.includes('404')) {
           remainingMessages.push(msg);
         }
@@ -102,15 +129,7 @@ async function cleanupOldMessages() {
   saveMessageTracker(remainingMessages);
   
   if (deletedCount > 0) {
-    console.log(`✅ Cleanup complete: ${deletedCount} messages deleted, ${remainingMessages.length} remaining`);
-  }
-  
-  // Log file size for monitoring
-  try {
-    const stats = fs.statSync(MESSAGE_TRACKER_FILE);
-    console.log(`💾 Tracker file size: ${(stats.size / 1024).toFixed(2)} KB`);
-  } catch (err) {
-    // File doesn't exist yet
+    console.log(`${colors.green}✅ Deleted ${deletedCount} old messages${colors.reset}`);
   }
 }
 
@@ -181,17 +200,8 @@ app.get('/pixel.gif', async (req, res) => {
     visitCount++;
     saveCounter(visitCount);
 
-    // Enhanced console logging
-    console.log(`\n${'='.repeat(60)}`);
-    console.log(`📊 NEW PROFILE VISIT #${visitCount}`);
-    console.log(`${'='.repeat(60)}`);
-    console.log(`👤 Profile: oggynjack`);
-    console.log(`🌐 IP: ${ip}`);
-    console.log(`💻 Device: ${device}`);
-    console.log(`🌐 Browser: ${browser}`);
-    console.log(`🔗 Referrer: ${referrer}`);
-    console.log(`⏰ Time: ${timestamp}`);
-    console.log(`${'='.repeat(60)}\n`);
+    // Clean, brief logging (no sensitive data)
+    console.log(`${colors.blue}👀 Visit #${visitCount} | ${device} - ${browser} | ${timestamp}${colors.reset}`);
 
     // Send to Discord (optional - fetch location data)
     let locationInfo = 'Unknown';
@@ -226,8 +236,6 @@ app.get('/pixel.gif', async (req, res) => {
       };
 
       try {
-        console.log('📤 Sending to Discord...');
-        
         const response = await fetch(DISCORD_WEBHOOK, {
           method: 'POST',
           headers: { 
@@ -239,22 +247,14 @@ app.get('/pixel.gif', async (req, res) => {
         
         const responseText = await response.text();
         
-        console.log(`Response Status: ${response.status}`);
-        console.log(`Response has body: ${responseText.length > 0}`);
-        
         // Check response status
         if (!response.ok) {
-          console.error(`❌ Discord webhook failed (${response.status})`);
-          console.error('Response:', responseText.substring(0, 300));
-          console.error('Webhook URL:', DISCORD_WEBHOOK.substring(0, 50) + '...');
+          console.error(`${colors.orange}❌ Discord failed (${response.status})${colors.reset}`);
         } else if (response.status === 204) {
-          // 204 No Content = Success (Discord webhooks return this)
-          console.log(`✅ Discord notification sent successfully (#${visitCount})`);
-          
-          // Note: Can't track message ID for cleanup since Discord doesn't return it with 204
-          // Messages will still auto-delete after Discord's retention period
+          // 204 No Content = Success
+          console.log(`${colors.green}✅ Discord notified${colors.reset}`);
         } else if (responseText.length > 0) {
-          // Try to parse as JSON (some Discord responses return JSON)
+          // Try to parse as JSON
           try {
             const data = JSON.parse(responseText);
             
@@ -269,17 +269,15 @@ app.get('/pixel.gif', async (req, res) => {
               saveMessageTracker(messages);
             }
             
-            console.log(`✅ Discord notification sent (#${visitCount})`);
+            console.log(`${colors.green}✅ Discord notified${colors.reset}`);
           } catch (parseErr) {
-            console.error('⚠️  Discord returned unexpected response format');
-            console.error('Response preview:', responseText.substring(0, 200));
+            console.error(`${colors.orange}⚠️  Unexpected response format${colors.reset}`);
           }
         } else {
-          console.log(`✅ Discord notification sent (#${visitCount})`);
+          console.log(`${colors.green}✅ Discord notified${colors.reset}`);
         }
       } catch (err) {
-        console.error('❌ Discord webhook error:', err.message);
-        console.error('Stack:', err.stack);
+        console.error(`${colors.orange}❌ Discord error: ${err.message}${colors.reset}`);
       }
     }
 
@@ -355,6 +353,6 @@ app.get('/test-webhook', async (req, res) => {
 
 const PORT = process.env.PORT || 4013;
 app.listen(PORT, () => {
-  console.log(`✅ Tracking server running on port ${PORT}`);
-  console.log(`📊 Tracking endpoint: http://localhost:${PORT}/pixel.gif`);
+  console.log(`${colors.green}✅ Server running on port ${PORT}${colors.reset}`);
+  console.log(`${colors.blue}📊 Endpoint: /pixel.gif${colors.reset}`);
 });
