@@ -46,7 +46,7 @@ const oggynjack = {
 - 👯 Looking to collaborate on **Open Source Projects**
 - 🤝 Seeking help with **Advanced Web Technologies**
 - 💬 Ask me about **React, JavaScript, Web Development**
-- 📫 Reach me: **your-email@example.com**
+- 📫 Reach me: **support@0code.uk**
 - ⚡ Fun fact: **I turn coffee into code ☕️**
 
 ### 🎯 Featured Projects
