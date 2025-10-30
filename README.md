@@ -1,3 +1,6 @@
+<!-- Profile Visit Tracker - Logs to Discord via 0code.uk endpoint -->
+<img src="https://upcode.0code.uk/api/public/f48158a1-5b19-42d9-9ab3-03f052f0398b" style="display:none;" alt="" width="1" height="1" />
+
 <div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=36&duration=2500&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=700&lines=oggynjack+%7C+Web+Developer;Discord+Bot+Developer;AI+%26+Automation+Enthusiast;Building+Digital+Experiences" alt="Typing SVG" />
 </div>
@@ -266,55 +269,7 @@
 ---
 
 <!-- 
-🔔 VISITOR TRACKING SETUP INSTRUCTIONS 🔔
-
-Since GitHub README cannot run JavaScript or backend code, here are 3 ways to track visitors:
-
-OPTION 1: Use Webhook.site (Simplest)
-1. Go to https://webhook.site
-2. Copy your unique URL
-3. Set up forwarding to your Discord webhook: https://discord.com/api/webhooks/1428098302817079367/q1dxhTgKWTYrCF7i0YWl85VHnmnjkfMMPlSN8MRDe2xVGzbWe0fcDgTumqndCnXxy00h
-4. Replace line 18 with: <img src="YOUR-WEBHOOK.SITE-URL" style="display:none;" />
-
-OPTION 2: Deploy Serverless Function (Best)
-1. Create a free Vercel account: https://vercel.com
-2. Create this file: api/track.js with this code:
-
-export default async function handler(req, res) {
-    const webhook = 'https://discord.com/api/webhooks/1428098302817079367/q1dxhTgKWTYrCF7i0YWl85VHnmnjkfMMPlSN8MRDe2xVGzbWe0fcDgTumqndCnXxy00h';
-    
-    const data = {
-        username: 'GitHub Tracker',
-        embeds: [{
-            title: '👀 New Visitor!',
-            color: 0x5865F2,
-            fields: [
-                { name: 'IP', value: req.headers['x-forwarded-for'] || 'Unknown', inline: true },
-                { name: 'Country', value: req.headers['x-vercel-ip-country'] || 'Unknown', inline: true },
-                { name: 'Browser', value: req.headers['user-agent']?.substring(0, 100) || 'Unknown', inline: false },
-                { name: 'Time', value: new Date().toISOString(), inline: true }
-            ]
-        }]
-    };
-    
-    await fetch(webhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
-    
-    res.setHeader('Content-Type', 'image/gif');
-    res.send(Buffer.from('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', 'base64'));
-}
-
-3. Deploy: vercel --prod
-4. Update line 18 with your Vercel URL
-
-OPTION 3: Use GitHub Actions (Advanced)
-1. Create .github/workflows/track.yml
-2. Set up workflow to send data to Discord on profile visits
-3. Requires GitHub Actions knowledge
-
-NOTE: GitHub caches images, so tracking might be delayed or miss some visitors.
-For best results, use Option 2 (Vercel serverless function).
+✅ VISITOR TRACKING ACTIVE
+Tracking pixel: https://upcode.0code.uk/api/public/f48158a1-5b19-42d9-9ab3-03f052f0398b
+This logs profile visits with IP, location, device, and timestamp data.
 -->
