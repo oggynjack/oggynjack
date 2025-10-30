@@ -1,0 +1,13 @@
+# Exclude files from GitHub language statistics
+*.scss linguist-detectable=false
+*.css linguist-detectable=false
+*.bat linguist-detectable=false
+Dockerfile linguist-detectable=false
+*.dockerfile linguist-detectable=false
+
+# Mark primary languages
+*.js linguist-detectable=true
+*.ts linguist-detectable=true
+*.jsx linguist-detectable=true
+*.tsx linguist-detectable=true
+*.html linguist-detectable=true

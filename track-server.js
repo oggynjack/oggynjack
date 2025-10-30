@@ -215,6 +215,9 @@ app.get('/pixel.gif', async (req, res) => {
         
         const responseText = await response.text();
         
+        console.log(`Response Status: ${response.status}`);
+        console.log(`Response has body: ${responseText.length > 0}`);
+        
         // Check response status
         if (!response.ok) {
           console.error(`❌ Discord webhook failed (${response.status})`);
