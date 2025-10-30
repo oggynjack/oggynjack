@@ -223,28 +223,35 @@ app.get('/pixel.gif', async (req, res) => {
           console.error(`❌ Discord webhook failed (${response.status})`);
           console.error('Response:', responseText.substring(0, 300));
           console.error('Webhook URL:', DISCORD_WEBHOOK.substring(0, 50) + '...');
-        } else {
-          // Try to parse as JSON
+        } else if (response.status === 204) {
+          // 204 No Content = Success (Discord webhooks return this)
+          console.log(`✅ Discord notification sent successfully (#${visitCount})`);
+          
+          // Note: Can't track message ID for cleanup since Discord doesn't return it with 204
+          // Messages will still auto-delete after Discord's retention period
+        } else if (responseText.length > 0) {
+          // Try to parse as JSON (some Discord responses return JSON)
           try {
             const data = JSON.parse(responseText);
             
-            // Track message for cleanup (compact format)
-            const messages = loadMessageTracker();
-            messages.push({
-              id: data.id,
-              ts: Date.now(),
-              v: visitCount
-            });
-            saveMessageTracker(messages);
+            // Track message for cleanup if we get an ID
+            if (data.id) {
+              const messages = loadMessageTracker();
+              messages.push({
+                id: data.id,
+                ts: Date.now(),
+                v: visitCount
+              });
+              saveMessageTracker(messages);
+            }
             
             console.log(`✅ Discord notification sent (#${visitCount})`);
           } catch (parseErr) {
-            console.error('❌ Discord returned non-JSON response');
-            console.error('Response preview:', responseText.substring(0, 500));
-            console.error('Content-Type:', response.headers.get('content-type'));
-            console.error('Response Status:', response.status);
-            console.error('Webhook (first 70 chars):', DISCORD_WEBHOOK.substring(0, 70));
+            console.error('⚠️  Discord returned unexpected response format');
+            console.error('Response preview:', responseText.substring(0, 200));
           }
+        } else {
+          console.log(`✅ Discord notification sent (#${visitCount})`);
         }
       } catch (err) {
         console.error('❌ Discord webhook error:', err.message);
