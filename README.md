@@ -75,8 +75,11 @@
 <tr>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/domain.png" width="24"/> 0code.uk Portfolio
-**Main portfolio & project hub**
+<p align="center"><img src="https://img.icons8.com/fluency/32/domain.png" width="28"/></p>
+
+**0code.uk Portfolio**
+
+Main portfolio & project hub
 
 `React` `Next.js` `TailwindCSS`
 
@@ -85,8 +88,11 @@
 </td>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/musical-notes.png" width="24"/> Rhythm Bot
-**Premium Discord music bot**
+<p align="center"><img src="https://img.icons8.com/fluency/32/musical-notes.png" width="28"/></p>
+
+**Rhythm Bot**
+
+Premium Discord music bot
 
 `Discord.js` `Node.js` `API Integration`
 
@@ -97,8 +103,11 @@
 <tr>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/email.png" width="24"/> TempMail Service
-**Temporary email generator**
+<p align="center"><img src="https://img.icons8.com/fluency/32/email.png" width="28"/></p>
+
+**TempMail Service**
+
+Temporary email generator
 
 `React` `API` `Automation`
 
@@ -107,8 +116,11 @@
 </td>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/code.png" width="24"/> UpCode Platform
-**Code sharing & collaboration**
+<p align="center"><img src="https://img.icons8.com/fluency/32/code.png" width="28"/></p>
+
+**UpCode Platform**
+
+Code sharing & collaboration
 
 `React` `Real-time` `WebSocket`
 
@@ -119,8 +131,11 @@
 <tr>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/artificial-intelligence.png" width="24"/> AIO Platform
-**All-in-one automation tools**
+<p align="center"><img src="https://img.icons8.com/fluency/32/artificial-intelligence.png" width="28"/></p>
+
+**AIO Platform**
+
+All-in-one automation tools
 
 `AI Integration` `Web Apps` `APIs`
 
@@ -129,8 +144,11 @@
 </td>
 <td width="50%">
 
-#### <img src="https://img.icons8.com/fluency/32/bot.png" width="24"/> Discord Bots
-**Custom Discord automation**
+<p align="center"><img src="https://img.icons8.com/fluency/32/bot.png" width="28"/></p>
+
+**Discord Bots**
+
+Custom Discord automation
 
 `Discord.js` `Node.js` `Webhooks`
 
@@ -187,7 +205,7 @@
 
 <div style="background: #1a1a2e; padding: 15px; border-radius: 10px; margin: 10px 0;">
 
-#### <img src="https://img.icons8.com/fluency/24/monitor.png" width="20" height="20"/> **Frontend Development**
+<p><img src="https://img.icons8.com/fluency/24/monitor.png" width="20" height="20"/> <strong>Frontend Development</strong></p>
 <p>
   <img src="https://skillicons.dev/icons?i=react,nextjs,javascript,typescript,html,css,tailwind,bootstrap" />
 </p>
@@ -196,7 +214,7 @@
 
 <div style="background: #16213e; padding: 15px; border-radius: 10px; margin: 10px 0;">
 
-#### <img src="https://img.icons8.com/fluency/24/server.png" width="20" height="20"/> **Backend & APIs**
+<p><img src="https://img.icons8.com/fluency/24/server.png" width="20" height="20"/> <strong>Backend & APIs</strong></p>
 <p>
   <img src="https://skillicons.dev/icons?i=nodejs,express,discord,bots" />
 </p>
@@ -205,7 +223,7 @@
 
 <div style="background: #0f3460; padding: 15px; border-radius: 10px; margin: 10px 0;">
 
-#### <img src="https://img.icons8.com/fluency/24/artificial-intelligence.png" width="20" height="20"/> **AI & Integration**
+<p><img src="https://img.icons8.com/fluency/24/artificial-intelligence.png" width="20" height="20"/> <strong>AI & Integration</strong></p>
 <p>
   <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
   <img src="https://img.shields.io/badge/AI_APIs-FF6B6B?style=for-the-badge&logo=robot&logoColor=white" />
@@ -216,7 +234,7 @@
 
 <div style="background: #533483; padding: 15px; border-radius: 10px; margin: 10px 0;">
 
-#### <img src="https://img.icons8.com/fluency/24/toolbox.png" width="20" height="20"/> **Tools & Platforms**
+<p><img src="https://img.icons8.com/fluency/24/toolbox.png" width="20" height="20"/> <strong>Tools & Platforms</strong></p>
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,vercel,netlify" />
 </p>

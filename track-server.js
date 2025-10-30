@@ -202,21 +202,28 @@ app.get('/pixel.gif', async (req, res) => {
       };
 
       try {
+        console.log('📤 Sending to Discord...');
+        
         const response = await fetch(DISCORD_WEBHOOK, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'User-Agent': 'GitHubProfileTracker/1.0'
+          },
           body: JSON.stringify(discordMessage)
         });
         
+        const responseText = await response.text();
+        
         // Check response status
         if (!response.ok) {
-          const errorText = await response.text();
-          console.error(`❌ Discord webhook failed (${response.status}):`, errorText.substring(0, 200));
+          console.error(`❌ Discord webhook failed (${response.status})`);
+          console.error('Response:', responseText.substring(0, 300));
+          console.error('Webhook URL:', DISCORD_WEBHOOK.substring(0, 50) + '...');
         } else {
-          // Check if response is JSON
-          const contentType = response.headers.get('content-type');
-          if (contentType && contentType.includes('application/json')) {
-            const data = await response.json();
+          // Try to parse as JSON
+          try {
+            const data = JSON.parse(responseText);
             
             // Track message for cleanup (compact format)
             const messages = loadMessageTracker();
@@ -228,12 +235,15 @@ app.get('/pixel.gif', async (req, res) => {
             saveMessageTracker(messages);
             
             console.log(`✅ Discord notification sent (#${visitCount})`);
-          } else {
-            console.error('❌ Discord returned non-JSON response (webhook might be invalid)');
+          } catch (parseErr) {
+            console.error('❌ Discord returned non-JSON response');
+            console.error('Response preview:', responseText.substring(0, 200));
+            console.error('Content-Type:', response.headers.get('content-type'));
           }
         }
       } catch (err) {
         console.error('❌ Discord webhook error:', err.message);
+        console.error('Stack:', err.stack);
       }
     }
 
