@@ -1,8 +1,12 @@
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=3DADF7&center=true&vCenter=true&random=false&width=600&lines=Hi+%F0%9F%91%8B%2C+I'm+oggynjack;Full+Stack+Developer;MERN+Stack+Enthusiast;Always+Learning+New+Things" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=32&duration=2500&pause=1000&color=00D9FF&center=true&vCenter=true&random=false&width=700&lines=oggynjack+%7C+Web+Developer;Discord+Bot+Developer;AI+%26+Automation+Enthusiast;Building+Digital+Experiences" alt="Typing SVG" />
 </div>
 
-<h3 align="center">🚀 Passionate Software Developer 🌟</h3>
+<h3 align="center">
+  <img src="https://img.icons8.com/fluency/48/code.png" width="24" height="24"/> 
+  Web Developer | Discord Bots | AI Integration
+  <img src="https://img.icons8.com/fluency/48/bot.png" width="24" height="24"/>
+</h3>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=oggynjack&label=Profile%20views&color=0e75b6&style=for-the-badge" alt="oggynjack" />
@@ -20,44 +24,116 @@
 
 ---
 
-### 👨‍💻 About Me
-
-```javascript
-const oggynjack = {
-    location: "Worldwide 🌍",
-    role: "Full Stack Developer",
-    currentFocus: ["React", "Next.js", "Node.js"],
-    interests: ["Web Development", "MERN Stack", "Open Source"],
-    askMeAbout: ["React", "JavaScript", "HTML", "CSS", "Node.js"],
-    technologies: {
-        frontEnd: ["React", "Next.js", "TypeScript", "TailwindCSS"],
-        backEnd: ["Node.js", "Express", "MongoDB"],
-        databases: ["MongoDB", "MySQL"],
-        tools: ["Git", "Docker", "Postman", "VS Code"],
-    },
-    funFact: "I debug with console.log() 🐛"
-};
-```
-
-### 🔥 Current Status
-
-- 🔭 Currently working on **React & MERN Stack Projects**
-- 🌱 Learning **Next.js, TypeScript, Advanced JavaScript**
-- 👯 Looking to collaborate on **Open Source Projects**
-- 🤝 Seeking help with **Advanced Web Technologies**
-- 💬 Ask me about **React, JavaScript, Web Development**
-- 📫 Reach me: **your-email@example.com**
-- ⚡ Fun fact: **I turn coffee into code ☕️**
-
-### 🎯 Featured Projects
+### <img src="https://img.icons8.com/fluency/48/user-male-circle.png" width="28" height="28"/> About Me
 
 <div align="center">
 
-| Project | Description | Tech Stack |
-|---------|-------------|------------|
-| 🌐 **MERN Apps** | Full-stack web applications | MongoDB, Express, React, Node |
-| ⚛️ **React Projects** | Modern UI/UX applications | React, TailwindCSS, TypeScript |
-| 🚀 **Open Source** | Contributing to the community | Various Technologies |
+[![Readme Quotes](https://github-readme-quotes.herokuapp.com/quote?theme=algolia&animation=default&layout=default&font=default)](https://github.com/piyushsuthar/github-readme-quotes)
+
+</div>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900">
+
+```bash
+┌──(oggynjack㉿github)-[~/profile]
+└─$ cat about.json
+```
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1000&color=00FF41&multiline=true&repeat=false&width=800&height=400&lines=%7B;++%22developer%22%3A+%22oggynjack%22%2C;++%22focus%22%3A+%5B;++++%22Web+Development%22%2C;++++%22Discord+Bot+Development%22%2C;++++%22AI+Integration%22;++%5D%2C;++%22specialties%22%3A+%5B;++++%22React%22%2C;++++%22Next.js%22%2C;++++%22Discord.js%22%2C;++++%22API+Development%22;++%5D%2C;++%22tools%22%3A+%5B%22Git%22%2C+%22VS+Code%22%2C+%22Postman%22%5D;%7D" alt="Terminal Animation" />
+
+<div align="center">
+
+```bash
+┌──(oggynjack㉿github)-[~/profile]
+└─$ ls -la projects/
+```
+
+</div>
+
+### <img src="https://img.icons8.com/fluency/48/fire-element.png" width="28" height="28"/> Current Status
+
+<img src="https://img.icons8.com/fluency/20/laptop-coding.png"/> Currently building web apps & Discord bots
+
+<img src="https://img.icons8.com/fluency/20/book.png"/> Learning AI integration & advanced Discord.js
+
+<img src="https://img.icons8.com/fluency/20/handshake.png"/> Open to collaboration on innovative projects
+
+<img src="https://img.icons8.com/fluency/20/chat.png"/> Ask me about React, Discord bots, web development
+
+<img src="https://img.icons8.com/fluency/20/email.png"/> Contact: **your-email@example.com**
+
+### <img src="https://img.icons8.com/fluency/48/rocket.png" width="28" height="28"/> Featured Projects
+
+<div align="center">
+
+<table>
+<tr>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/domain.png" width="24"/> 0code.uk Portfolio
+**Main portfolio & project hub**
+
+`React` `Next.js` `TailwindCSS`
+
+[🔗 Visit Site](https://0code.uk)
+
+</td>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/musical-notes.png" width="24"/> Rhythm Bot
+**Premium Discord music bot**
+
+`Discord.js` `Node.js` `API Integration`
+
+[🔗 Visit Site](https://rhythm.0code.uk)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/email.png" width="24"/> TempMail Service
+**Temporary email generator**
+
+`React` `API` `Automation`
+
+[🔗 Visit Site](https://tempmail.0code.uk)
+
+</td>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/code.png" width="24"/> UpCode Platform
+**Code sharing & collaboration**
+
+`React` `Real-time` `WebSocket`
+
+[🔗 Visit Site](https://upcode.0code.uk)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/artificial-intelligence.png" width="24"/> AIO Platform
+**All-in-one automation tools**
+
+`AI Integration` `Web Apps` `APIs`
+
+[🔗 Visit Site](https://aio.0code.uk)
+
+</td>
+<td width="50%">
+
+#### <img src="https://img.icons8.com/fluency/32/bot.png" width="24"/> Discord Bots
+**Custom Discord automation**
+
+`Discord.js` `Node.js` `Webhooks`
+
+`Multiple Active Bots`
+
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -94,11 +170,33 @@ const oggynjack = {
 
 ---
 
-### 🛠️ Languages & Tools
+### <img src="https://img.icons8.com/fluency/48/settings.png" width="28" height="28"/> Tech Stack
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react,nextjs,typescript,javascript,nodejs,express,mongodb,mysql,tailwind,bootstrap,redux,html,css,python,java,cpp,git,github,docker,vscode,linux,postman&perline=16" />
+<div align="center">
+
+#### <img src="https://img.icons8.com/fluency/24/monitor.png" width="20" height="20"/> Frontend Development
+<p>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,javascript,typescript,html,css,tailwind,bootstrap" />
 </p>
+
+#### <img src="https://img.icons8.com/fluency/24/server.png" width="20" height="20"/> Backend & APIs
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express,discord,bots" />
+</p>
+
+#### <img src="https://img.icons8.com/fluency/24/artificial-intelligence.png" width="20" height="20"/> AI & Integration
+<p>
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
+  <img src="https://img.shields.io/badge/AI_APIs-FF6B6B?style=for-the-badge&logo=robot&logoColor=white" />
+  <img src="https://img.shields.io/badge/Automation-4CAF50?style=for-the-badge&logo=zapier&logoColor=white" />
+</p>
+
+#### <img src="https://img.icons8.com/fluency/24/toolbox.png" width="20" height="20"/> Tools & Platforms
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,vercel,netlify" />
+</p>
+
+</div>
 
 ---
 
