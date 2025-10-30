@@ -51,10 +51,12 @@ function loadMessageTracker() {
   return [];
 }
 
-// Save message tracker
+// Save message tracker (with size limit)
 function saveMessageTracker(messages) {
   try {
-    fs.writeFileSync(MESSAGE_TRACKER_FILE, JSON.stringify(messages, null, 2));
+    // Only keep last 5000 messages (safety limit)
+    const limitedMessages = messages.slice(-5000);
+    fs.writeFileSync(MESSAGE_TRACKER_FILE, JSON.stringify(limitedMessages));
   } catch (err) {
     console.error('Error saving message tracker:', err.message);
   }
@@ -65,19 +67,25 @@ async function cleanupOldMessages() {
   const messages = loadMessageTracker();
   const fourDaysAgo = Date.now() - (4 * 24 * 60 * 60 * 1000);
   const remainingMessages = [];
+  let deletedCount = 0;
+
+  console.log(`🧹 Starting cleanup... ${messages.length} messages tracked`);
 
   for (const msg of messages) {
-    const messageAge = new Date(msg.timestamp).getTime();
+    // Handle both old format (timestamp) and new format (ts)
+    const messageAge = msg.ts || new Date(msg.timestamp).getTime();
     
     if (messageAge < fourDaysAgo) {
       // Delete old message
       try {
         const deleteUrl = `${DISCORD_WEBHOOK}/messages/${msg.id}`;
         await fetch(deleteUrl, { method: 'DELETE' });
-        console.log(`🗑️  Deleted old message: ${msg.id}`);
+        deletedCount++;
       } catch (err) {
-        console.error(`Failed to delete message ${msg.id}:`, err.message);
-        remainingMessages.push(msg); // Keep in tracker if deletion failed
+        // If delete fails, keep in tracker (message might already be deleted)
+        if (!err.message.includes('404')) {
+          remainingMessages.push(msg);
+        }
       }
     } else {
       remainingMessages.push(msg);
@@ -85,6 +93,18 @@ async function cleanupOldMessages() {
   }
 
   saveMessageTracker(remainingMessages);
+  
+  if (deletedCount > 0) {
+    console.log(`✅ Cleanup complete: ${deletedCount} messages deleted, ${remainingMessages.length} remaining`);
+  }
+  
+  // Log file size for monitoring
+  try {
+    const stats = fs.statSync(MESSAGE_TRACKER_FILE);
+    console.log(`💾 Tracker file size: ${(stats.size / 1024).toFixed(2)} KB`);
+  } catch (err) {
+    // File doesn't exist yet
+  }
 }
 
 let visitCount = loadCounter();
@@ -184,12 +204,12 @@ app.get('/pixel.gif', async (req, res) => {
         if (response.ok) {
           const data = await response.json();
           
-          // Track message for cleanup
+          // Track message for cleanup (compact format)
           const messages = loadMessageTracker();
           messages.push({
             id: data.id,
-            timestamp: new Date().toISOString(),
-            visitNumber: visitCount
+            ts: Date.now(), // Use timestamp instead of ISO string (smaller)
+            v: visitCount   // Shortened key
           });
           saveMessageTracker(messages);
           
