@@ -181,10 +181,6 @@ Custom Discord automation
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=oggynjack&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Activity Graph">
 </p>
 
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=oggynjack&theme=tokyonight" alt="Top Languages by Commit" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=oggynjack&theme=tokyonight&utcOffset=0" alt="Productive Time" />
-</p>
 
 <div align="center">
   <img src="https://github.com/oggynjack/oggynjack/blob/output/github-snake-dark.svg" alt="Snake animation" />
@@ -196,10 +192,6 @@ Custom Discord automation
 
 <!--START_SECTION:activity-->
 <!--END_SECTION:activity-->
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=oggynjack&theme=tokyonight&hide_border=true&bg_color=0D1117&layout=compact" alt="WakaTime Stats" />
-</p>
 
 ---
 

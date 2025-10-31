@@ -5,9 +5,6 @@ on:
     # Runs every 6 hours
     - cron: '0 */6 * * *'
   workflow_dispatch: # Allows manual trigger
-  push:
-    branches:
-      - main
 
 jobs:
   update-readme:
@@ -20,14 +17,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Update GitHub Stats
-        uses: jamesgeorge007/github-activity-readme@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          COMMIT_MSG: 'Update GitHub stats'
-          MAX_LINES: 10
 
       - name: Generate Snake Animation
         uses: Platane/snk@v3
