@@ -25,6 +25,10 @@
 </p>
 
 <p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=oggynjack&theme=tokyonight&hide_border=true&bg_color=0D1117&layout=compact" alt="Wakatime Stats" />
+</p>
+
+<p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=oggynjack&theme=tokyonight" alt="Profile Details" />
 </p>
 
@@ -182,9 +186,15 @@ Custom Discord automation
 </p>
 
 
-<div align="center">
-  <img src="https://github.com/oggynjack/oggynjack/blob/output/github-snake-dark.svg" alt="Snake animation" />
-</div>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=oggynjack&theme=tokyonight&utcOffset=0" alt="Productive Time" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=oggynjack&theme=tokyonight" alt="Repos Per Language" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=oggynjack&theme=tokyonight" alt="Most Commit Language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=oggynjack&theme=tokyonight" alt="Stats" />
+</p>
 
 <div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00FF87&center=true&vCenter=true&width=400&lines=Recent+Activity" alt="Recent Activity" />
