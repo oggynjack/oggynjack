@@ -20,16 +20,12 @@
 
 <p align="center">
   <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&column=7&rank=SECRET,SSS,SS,S,AAA,AA,A,B,C" alt="oggynjack" />
+    <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" alt="oggynjack" />
   </a>
 </p>
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/wakatime?username=oggynjack&theme=tokyonight&hide_border=true&bg_color=0D1117&layout=compact" alt="Wakatime Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=oggynjack&theme=tokyonight" alt="Profile Details" />
 </p>
 
 ---
@@ -186,13 +182,6 @@ Custom Discord automation
 </p>
 
 
-
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00FF87&center=true&vCenter=true&width=400&lines=Recent+Activity" alt="Recent Activity" />
-</div>
-
-<!--START_SECTION:activity-->
-<!--END_SECTION:activity-->
 
 ---
 
