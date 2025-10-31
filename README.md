@@ -175,6 +175,13 @@ Custom Discord automation
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=oggynjack&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Activity Graph">
 </p>
 
+<div align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Protest+Strike&weight=700&size=28&duration=1000&pause=5000&color=00E5FF&center=true&vCenter=true&width=350&lines=Recent+Activity" alt="Recent Activity" />
+</div>
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
 
 
 ---
