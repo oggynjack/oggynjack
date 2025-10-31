@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=2&column=4&rank=-C,-B" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=1&column=6&rank=SECRET,SSS,SS,S,AAA,AA,A" alt="GitHub Trophies" />
 </p>
 
 ---
@@ -163,8 +163,8 @@ Custom Discord automation
 </div>
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&cache_seconds=300"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=oggynjack&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0D1117&cache_seconds=300&hide=SCSS,CSS,Batchfile,Dockerfile"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=false&hide_border=true&bg_color=0D1117"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=oggynjack&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0D1117&hide=SCSS,CSS,Batchfile,Dockerfile"/>
 </p>
 
 <p align="center">
