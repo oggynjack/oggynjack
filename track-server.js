@@ -10,6 +10,42 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(cors());
 
+// ---------- IP utilities ----------
+function ipToLong(ip) {
+  const m = /^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/.exec(ip);
+  if (!m) return null;
+  return (parseInt(m[1]) << 24) + (parseInt(m[2]) << 16) + (parseInt(m[3]) << 8) + parseInt(m[4]);
+}
+function inCidr(ip, cidr) {
+  const [range, bits] = cidr.split('/');
+  const ipLong = ipToLong(ip);
+  const rangeLong = ipToLong(range);
+  if (ipLong === null || rangeLong === null) return false;
+  const mask = -1 << (32 - parseInt(bits));
+  return (ipLong & mask) === (rangeLong & mask);
+}
+function isPrivateIp(ip) {
+  return (
+    ip.startsWith('10.') ||
+    ip.startsWith('192.168.') ||
+    (ip.startsWith('172.') && (() => { const n = parseInt(ip.split('.')[1]); return n >= 16 && n <= 31; })())
+  );
+}
+const proxyCidrs = [
+  // GitHub
+  '140.82.0.0/16','185.199.108.0/22','192.30.252.0/22',
+  // Cloudflare
+  '173.245.48.0/20','103.21.244.0/22','103.22.200.0/22','103.31.4.0/22',
+  '141.101.64.0/18','108.162.192.0/18','190.93.240.0/20','188.114.96.0/20',
+  '197.234.240.0/22','198.41.128.0/17','162.158.0.0/15','104.16.0.0/13',
+  '104.24.0.0/14','172.64.0.0/13','131.0.72.0/22'
+];
+function isLikelyProxyIp(ip) {
+  if (!ip) return true;
+  if (isPrivateIp(ip)) return true;
+  return proxyCidrs.some(c => inCidr(ip, c));
+}
+
 // Discord webhook URL
 const DISCORD_WEBHOOK = process.env.DISCORD_WEBHOOK || 'https://discord.com/api/webhooks/1433582170164826182/RyhKs8KNoPUWFOK2PtW_m-kyPWEUfjymd2wp1Qky7lG2kX02DpDhaYrbazHSXS__mCgL';
 
@@ -40,6 +76,21 @@ ${colors.green}                                                        ${colors.
 // Show banner on startup and every 2 minutes
 showBanner();
 setInterval(showBanner, 120000); // 120 seconds
+
+// ------ Simple in-memory dedupe to avoid multi-embeds ------
+const recentEvents = new Map();
+const DEDUPE_TTL_MS = 60 * 1000; // 60s window
+function isDuplicateEvent(key) {
+  const now = Date.now();
+  const last = recentEvents.get(key);
+  // Sweep occasionally
+  if (recentEvents.size > 2000) {
+    for (const [k, ts] of recentEvents.entries()) if (now - ts > DEDUPE_TTL_MS) recentEvents.delete(k);
+  }
+  if (last && (now - last) < DEDUPE_TTL_MS) return true;
+  recentEvents.set(key, now);
+  return false;
+}
 
 // Validate webhook on startup
 if (DISCORD_WEBHOOK && DISCORD_WEBHOOK !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
@@ -144,14 +195,24 @@ app.get('/pixel.gif', async (req, res) => {
   try {
     // Get visitor info - extract real IP from proxy chain
     const forwardedFor = req.headers['x-forwarded-for'];
+    const cfConnecting = req.headers['cf-connecting-ip'];
+    const xReal = req.headers['x-real-ip'];
     let ip = 'Unknown';
-    
-    if (forwardedFor) {
-      // x-forwarded-for contains comma-separated IPs, first one is the real client IP
-      const ips = forwardedFor.split(',').map(ip => ip.trim());
-      ip = ips[0]; // Real visitor IP
-    } else {
-      ip = req.socket.remoteAddress || 'Unknown';
+
+    // Build candidate list (preserve order)
+    const candidates = [];
+    if (forwardedFor) candidates.push(...forwardedFor.split(',').map(s => s.trim()));
+    if (cfConnecting) candidates.push(String(cfConnecting).trim());
+    if (xReal) candidates.push(String(xReal).trim());
+    if (req.socket && req.socket.remoteAddress) candidates.push(String(req.socket.remoteAddress).replace('::ffff:', ''));
+
+    // Choose first public IP not in known proxy ranges
+    const publicCandidate = (candidates.find(ipc => /^(\d{1,3}\.){3}\d{1,3}$/.test(ipc) && !isLikelyProxyIp(ipc)));
+    if (publicCandidate) {
+      ip = publicCandidate;
+    } else if (candidates.length > 0) {
+      // fallback to first in chain
+      ip = candidates[0];
     }
     
     const userAgent = req.headers['user-agent'] || 'Unknown';
@@ -164,9 +225,7 @@ app.get('/pixel.gif', async (req, res) => {
       ua.includes('github') ||
       ua.includes('camo') ||
       referrer.includes('github.com') ||
-      ip.startsWith('140.82.') || // GitHub
-      ip.startsWith('185.199.') || // GitHub CDN
-      ip.startsWith('192.30.'); // GitHub legacy
+      isLikelyProxyIp(candidates[0] || ip)
 
     // Parse device info with better iOS detection
     let device = 'Unknown';
@@ -211,6 +270,17 @@ app.get('/pixel.gif', async (req, res) => {
       browser = 'Proxied Request';
     }
 
+    // Dedupe key (IP + UA)
+    const dedupeKey = `${ip}|${userAgent.substring(0,50)}`;
+    if (isDuplicateEvent(dedupeKey)) {
+      // Likely duplicate from GitHub CDN double-fetch; skip logging/embed
+      return res.writeHead(200, {
+        'Content-Type': 'image/gif',
+        'Content-Length': fs.statSync(path.join(__dirname, '0code-aniamted.gif')).size,
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }).end(fs.readFileSync(path.join(__dirname, '0code-aniamted.gif')));
+    }
+
     // Increment visit counter
     visitCount++;
     saveCounter(visitCount);
@@ -241,7 +311,7 @@ app.get('/pixel.gif', async (req, res) => {
             { name: '📊 Total Visits', value: `${visitCount}`, inline: true },
             { name: '📍 Location', value: isProxied ? 'Proxied via GitHub/CDN' : locationInfo, inline: true },
             { name: '💻 Device', value: `${device} - ${browser}`, inline: true },
-            { name: '🌐 IP Address', value: isProxied ? 'Proxied' : ip, inline: true },
+            { name: '🌐 IP Address', value: ip, inline: true },
             { name: '🔗 Referrer', value: referrer.substring(0, 80), inline: false },
             { name: '⏰ Time', value: timestamp, inline: true }
           ],
