@@ -19,13 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=2&column=4" alt="oggynjack" />
-  </a>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=oggynjack&theme=tokyonight&hide_border=true&bg_color=0D1117&layout=compact" alt="Wakatime Stats" />
+  <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=2&column=4&rank=-C,-B" alt="GitHub Trophies" />
 </p>
 
 ---
@@ -169,8 +163,8 @@ Custom Discord automation
 </div>
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&cache_seconds=1800"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=oggynjack&layout=compact&langs_count=10&theme=tokyonight&hide_border=true&bg_color=0D1117&cache_seconds=1800"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oggynjack&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&cache_seconds=300"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=oggynjack&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0D1117&cache_seconds=300&hide=SCSS,CSS,Batchfile,Dockerfile"/>
 </p>
 
 <p align="center">
