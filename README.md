@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=4&row=1&column=6&rank=SECRET,SSS,SS,S,AAA,AA,A" alt="GitHub Trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=oggynjack&theme=discord&no-frame=true&no-bg=true&margin-w=10&column=8&title=Stars,Followers,Repositories,Commit,PullRequest,Issues,Reviews,Experience&rank=SECRET,SSS,SS,S,AAA,AA,A,B,C&v=2" alt="GitHub Trophies" />
 </p>
 
 ---
